@@ -1,0 +1,285 @@
+body {
+    /* IE, Edge 対応 */
+    -ms-overflow-style: none;
+    /* Firefox 対応 */
+    /* scrollbar-width: none; */
+}
+
+body::-webkit-scrollbar {
+    display:none;
+}
+
+.site-body {
+    padding: 0;
+    overflow: visible;
+}
+
+.site-body-container {
+    width: 100%;
+    padding: 0;
+}
+
+.canvas-wrapper {
+    position: relative;
+    margin-top: 0;
+}
+
+.canvas-wrapper canvas {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#planets {
+    background-image: url('../images/2k_stars_milky_way.jpg');
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#particle {
+    z-index: 2;
+}
+
+p {
+    color: white;
+}
+
+.corp-name {
+    position: absolute;
+    margin-top: 20%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 3;
+}
+
+.TextTyping span {
+    display: none;
+}
+
+/*文字列後ろの線の設定*/
+.TextTyping::after {
+    content: "|";
+    animation: typinganime .8s ease infinite;
+}
+
+@keyframes typinganime{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+/* 768pxより大きいとき */
+@media (min-width: 768px) {
+    .site-body-container {
+        max-width: 100%;
+    }
+
+    .corp-name {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .site-body-container {
+        max-width: 100%;
+    }
+
+    .corp-name {
+        font-size: 4rem;
+    }
+}
+
+
+/* 以下マウス描写 */
+/*スクロールダウン全体の場所*/
+.scrolldown3 {
+    /*描画位置※位置は適宜調整してください*/
+	position:absolute;
+	top: 600%;
+	right:50%;
+    height: 100px;
+    z-index: 4;
+    max-height: 100px;
+    /*マウスの動き1.6秒かけて動く永遠にループ*/
+	animation:mousemove 1.6s ease-in-out infinite;
+}
+
+/*下からの距離が変化して上から下に動く*/
+@keyframes mousemove{
+    0%{bottom:10px;}
+    50%{bottom:5px;}
+    100%{bottom:10px;}
+}
+
+/*Scrollテキストの描写*/
+.scrolldown3 span{
+    /*描画位置*/
+	position: absolute;
+    top: 600%;
+	left:-15px;
+	bottom:45px;
+    z-index: 4;
+    /*テキストの形状*/
+	color: #eee;
+	font-size: 0.7rem;
+	letter-spacing: 0.05em;
+}
+
+/*マウスの中の線描写 */
+.scrolldown3 span::after{
+	content: "";
+    /*描画位置*/
+	position: absolute;
+	top: 600%;
+	left:17px;
+    /*線の形状*/
+	width: 1px;
+	height: 15px;
+    z-index: 4;
+	background: #eee;
+    /*線の動き1.4秒かけて動く。永遠にループ*/
+	animation: mousepathmove 1.4s linear infinite;
+	opacity:0;
+}
+
+/*上からの距離・不透明度・高さが変化して上から下に流れる*/
+@keyframes mousepathmove{
+	0%{
+		height:0;
+		top:10px;
+		opacity: 0;
+	}
+	50%{
+		height:15px;
+		opacity: 1;
+	}
+	100%{
+		height:0;
+		top:30px;
+		opacity: 0;
+	}
+}
+
+/*マウスの描写 */
+.scrolldown3:before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    top: 620%;
+    bottom:0;
+    left:-10px;
+    z-index: 4;
+    /*マウスの形状*/
+	width:25px;
+	height:37px;
+	border-radius: 10px;
+	border:1px solid #eee;
+}
+
+
+/*マウスの中の丸の描写*/
+.scrolldown3:after{
+	content:"";
+    /*描画位置*/
+	position: absolute;
+    top: 625%;
+	bottom:26px;
+	left:0;
+    z-index: 4;
+    /*丸の形状*/
+	width:5px;
+	height: 5px;
+	border-radius: 50%;
+	border:1px solid #eee;
+}
+
+.text-contents {
+    padding-top: 40%;
+}
+
+/* 理念 */
+.philosophy {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 70%;
+    padding-top: 30%;
+    padding-bottom: 20%; /* 後で削除 */
+    text-align: center;
+}
+
+.phil-main {
+    opacity: 0;
+    font-size: xx-large;
+
+    background-image: linear-gradient(#fff, #fff); /* 単色 */
+    display: inline;
+    background-size: 0 1px; /* 幅(0=見えない状態) | 高さ(=線の太さ) */
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    padding-bottom: 5px;
+    transition: background-size 1s ease-out;
+}
+
+.phil-main.line-on {
+    background-size: 100% 1px; /* 幅(100%=文字の長さ) | 高さ(=線の太さ) */
+}
+
+.phil-sub {
+    margin-top: 50%;
+    opacity: 0;
+    font-size: large;
+}
+
+.slide-phil {
+    animation: slide-phil 3s 1;
+}
+
+@keyframes slide-phil {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.marker {
+    background:linear-gradient(transparent 60%, hsla(35, 88%, 52%, 0.596),#edde5da2 60%);
+    display: inline;
+    background-repeat: no-repeat; /* 背景の繰り返しを停止 */
+    background-size: 0% 100%; /* マーカーの横方向を0にして縮める */
+    transition:background-size 1.5s; /* マーカーが引かれる速度を指定 */
+}
+
+.marker.on {
+    background-size: 100% 100%; /* 横方向を100%にして、マーカーを引く */
+}
+
+/* .phil-image {
+    width: 50%;
+} */
+
+.phil-image {
+    /* animation: slideinRight 3s 1; */
+    width: 70%;
+}
+
+.slidein-right {
+    animation: slidein-right 4s 1;
+    width: 70%;
+}
+
+@keyframes slidein-right {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -6,6 +6,22 @@ Description: Lightningテーマの子テーマ
 Author:
 */
 
-body {
-    /* hogehoge */
+.site-header {
+    background-color: black;
 }
+
+.site-header a {
+    color: #fff;
+}
+
+.global-nav-name {
+    color: #fff;
+}
+
+
+
+/* 576
+768
+991
+1200
+1400 */
