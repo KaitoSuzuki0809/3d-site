@@ -19,6 +19,17 @@ body::-webkit-scrollbar {
     padding: 0;
 }
 
+#slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;/*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
+    z-index: 1;
+}
+
 .canvas-wrapper {
     position: relative;
     margin-top: 0;
