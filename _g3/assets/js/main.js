@@ -47,6 +47,8 @@ $(window).scroll(function() {
     var position_bottom = top + $(".phil-main").height();  // ターゲットが下からスクロールしたときに見える位置
     if($(window).scrollTop() > position && $(window).scrollTop() < position_bottom){
         // 要素が見えたときの動き
+        $('.philosophy').css('animation', 'slide-bg 4s cubic-bezier(0.215, 0.61, 0.355, 1) forwards');
+        $('.bg-card').css('animation', 'slide-card 4s cubic-bezier(0.215, 0.61, 0.355, 1) forwards');
         $('.phil-main').addClass('slide-phil');
         $('.phil-main').css('opacity', '1')
         setTimeout(function(){
@@ -80,15 +82,16 @@ $(window).scroll(function() {
     }
 });
 
-// $(window).scroll(function() {
-//     var top = $(".phil-image").offset().top; // ターゲットの位置取得
-//     var position = top - $(window).height();  // ターゲットが上からスクロールしたときに見える位置
-//     var position_bottom = top + $(".phil-image").height();  // ターゲットが下からスクロールしたときに見える位置
-//     if($(window).scrollTop() > position && $(window).scrollTop() < position_bottom){
-//         // 要素が見えたときの動き
-//         $('.phil-image').addClass('slidein-right');
-//     }else{
-//         // それ以外の動き
-//         $('.phil-image').removeClass('slidein-right');
-//     }
-// });
+// 画像ホバー時カラー変更
+$(document).ready(function(){
+    var corporateImages = $('.corporate-image');
+
+    // マウスエンターイベント
+    corporateImages.mouseenter(function(){
+        $(this).css('filter', 'grayscale(0)');
+    });
+
+    corporateImages.mouseleave(function(){
+        $(this).css('filter', '');
+    });
+});

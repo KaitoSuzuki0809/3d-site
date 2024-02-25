@@ -9,25 +9,33 @@ body::-webkit-scrollbar {
     display:none;
 }
 
+h2 {
+    border-top: none;
+}
+
 .site-body {
     padding: 0;
     overflow: visible;
 }
 
 .site-body-container {
-    width: 100%;
+    width: 95%;
     padding: 0;
 }
 
 #slider {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     width: 100%;
-    height: 100vh;/*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
+    height: 90vh;/*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
     z-index: 1;
+
+    /* absoluteを左右中央に寄せる↓ */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    border-radius: 10px;
 }
 
 .canvas-wrapper {
@@ -54,16 +62,16 @@ body::-webkit-scrollbar {
     z-index: 2;
 }
 
-p {
+* {
     color: white;
 }
 
 .corp-name {
     position: absolute;
     margin-top: 20%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
     z-index: 3;
+    text-align: center;
+    width: 100%;
 }
 
 .TextTyping span {
@@ -207,18 +215,75 @@ p {
 }
 
 .text-contents {
-    padding-top: 40%;
+    padding-top: 45.5%;
 }
 
 /* 理念 */
 .philosophy {
+    position: relative;
     height: 100%;
-    margin: 0 auto;
-    max-width: 70%;
-    padding-top: 30%;
-    padding-bottom: 20%; /* 後で削除 */
+    /* margin: 0 auto; */
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20%;
+    padding-top: 5%;
+    padding-bottom: 5%;
     text-align: center;
+    background-color: #272727;
+    /* animation: slide-bg  4s cubic-bezier(0.215, 0.61, 0.355, 1) forwards; */
+    transform-origin: left center;
+
+    width: 98%;
 }
+
+@keyframes slide-bg {
+    0% {
+      opacity: 0;
+      transform: scaleX(0) translateX(-5%);
+    }
+    30% {
+      transform: scaleX(1) translateX(0);
+    }
+    100% {
+      transform: scaleX(1) translateX(0);
+    }
+    30%, 100% {
+      opacity: 1;
+    }
+}
+
+.bg-card {
+    position: absolute;
+    height: 7.4%;
+    width: 97.7%;
+    margin-top: 23%;
+    margin-left: 2%;
+    margin-right: auto;
+    margin-bottom: 20%;
+    /* padding-top: 5%;
+    padding-bottom: 5%; */
+    background-color: #fff;
+    transform-origin: right center;
+    /* float: right; */
+}
+
+@keyframes slide-card {
+    0% {
+      opacity: 0;
+      transform: scaleX(0) translateX(-5%);
+    }
+    30% {
+      transform: scaleX(1) translateX(0);
+    }
+    100% {
+      transform: scaleX(1) translateX(0);
+    }
+    30%, 100% {
+      opacity: 1;
+    }
+}
+
 
 .phil-main {
     opacity: 0;
@@ -231,6 +296,7 @@ p {
     background-repeat: no-repeat;
     padding-bottom: 5px;
     transition: background-size 1s ease-out;
+    max-width: 70%;
 }
 
 .phil-main.line-on {
@@ -238,9 +304,12 @@ p {
 }
 
 .phil-sub {
-    margin-top: 50%;
+    margin-top: 5%;
     opacity: 0;
+    max-width: 70%;
     font-size: large;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .slide-phil {
@@ -270,27 +339,78 @@ p {
     background-size: 100% 100%; /* 横方向を100%にして、マーカーを引く */
 }
 
-/* .phil-image {
-    width: 50%;
-} */
-
-.phil-image {
-    /* animation: slideinRight 3s 1; */
-    width: 70%;
+.wave{
+    position: relative;
 }
 
-.slidein-right {
-    animation: slidein-right 4s 1;
-    width: 70%;
+.wave canvas{
+    position: absolute;
+    bottom: 0;
+left:0;
+    width: 100%;
 }
 
-@keyframes slidein-right {
-    0% {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.group-companies {
+    width: 100%;
+}
+
+.group-companies-h2 {
+    font-size: xxx-large;
+}
+
+.grid-container-left {
+    display: grid;
+    gap: 5%;
+    grid-template-areas: "grid1 grid2";
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    width: 90%;
+}
+
+.grid-container-right {
+    display: grid;
+    gap: 5%;
+    grid-template-areas: "grid2 grid1";
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    width: 90%;
+}
+
+.corporate-details {
+    grid-area: grid1;
+    padding: 3%;
+}
+
+.corporate-details h3 {
+    font-size: x-large;
+}
+
+.corporate-details .en {
+    font-size: large;
+    color: gainsboro;
+}
+
+.corporate-details .name {
+    font-size: xx-large;
+    border-bottom: 1px solid #fff;
+}
+
+.about-us {
+
+}
+
+.corporate-image {
+    height: auto;
+    grid-area: grid2;
+    background-image: url('../images/AdobeStock_612181794-square.jpg');
+    background-size: cover;
+    filter: grayscale(100%);/*モノクロ具合を変更したい場合はこの数値を変更*/
+	transition: .5s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+}
+
+.my-div {
+    width: 1000px;
+    height: 1000px;
 }
