@@ -9,11 +9,9 @@
 <!-- js libraries -->
 <script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/jquery.js' ?>"></script>
 <script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/lib/vegas.min.js' ?>"></script>
-<script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/lib/gsap.min.js' ?>"></script>
-<script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/lib/hover-effect-master/dist/hover.umd.js' ?>"></script>
 
+<div id="slider"></div>
 <div class="canvas-wrapper">
-    <div id="slider"></div>
     <!-- <canvas id="planets"></canvas> -->
     <canvas id="particle"></canvas>
     <p class="corp-name TextTyping">株式会社Eureka Holdings</p>
@@ -22,6 +20,7 @@
 
 <div class="text-contents">
     <div class="bg-card"></div>
+    <canvas class="waves" id="waveCanvas" style="display: none;"></canvas>
     <div class="philosophy">
         <p class="phil-main">共に創り上げる革命的未来、幸福な共同体の築造</p>
         <p class="phil-sub">
@@ -128,11 +127,8 @@
     </div>
 </div>
 
-
-<div class="my-div"></div>
-
 <!-- js -->
 <script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/main.js' ?>"></script>
-<script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/philosophy.js' ?>"></script>
+<script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/wave.js' ?>"></script>
 <script type="module" src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/fluid_animation.js' ?>"></script>
 <script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/slideshow.js' ?>"></script>

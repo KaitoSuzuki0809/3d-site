@@ -1,21 +1,5 @@
 // TextTypingというクラス名がついている子要素（span）を表示から非表示にする定義
 function TextTypingAnime() {
-    //spanタグを追加する
-    var element = $(".TextTyping");
-    element.each(function () {
-        var text = $(this).html();
-        var textbox = "";
-        text.split('').forEach(function (t) {
-        if (t !== " ") {
-            textbox += '<span>' + t + '</span>';
-        } else {
-            textbox += t;
-        }
-        });
-        $(this).html(textbox);
-
-    });
-
     $('.TextTyping').each(function () {
         var elemPos = $(this).offset().top - 50;
         var scroll = $(window).scrollTop();
@@ -23,6 +7,7 @@ function TextTypingAnime() {
         var thisChild = "";
         if (scroll >= elemPos - windowHeight) {
         thisChild = $(this).children(); //spanタグを取得
+
         //spanタグの要素の１つ１つ処理を追加
         thisChild.each(function (i) {
             var time = 100;
@@ -38,6 +23,26 @@ function TextTypingAnime() {
         }
     });
 }
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+    //spanタグを追加する
+    var element = $(".TextTyping");
+    element.each(function () {
+        var text = $(this).html();
+        var textbox = "";
+        text.split('').forEach(function (t) {
+        if (t !== " ") {
+            textbox += '<span>' + t + '</span>';
+        } else {
+            textbox += t;
+        }
+        });
+        $(this).html(textbox);
+    });
+
+    TextTypingAnime();
+});
 
 // スクロールアニメーション
 // 理念（メイン）

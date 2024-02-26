@@ -216,13 +216,13 @@ h2 {
 
 .text-contents {
     padding-top: 45.5%;
+    position: relative;
 }
 
 /* 理念 */
 .philosophy {
     position: relative;
     height: 100%;
-    /* margin: 0 auto; */
     margin-top: 20%;
     margin-left: auto;
     margin-right: auto;
@@ -231,9 +231,8 @@ h2 {
     padding-bottom: 5%;
     text-align: center;
     background-color: #272727;
-    /* animation: slide-bg  4s cubic-bezier(0.215, 0.61, 0.355, 1) forwards; */
+    /* background-color: rgba(39,39,39, 0.9); */
     transform-origin: left center;
-
     width: 98%;
 }
 
@@ -255,17 +254,14 @@ h2 {
 
 .bg-card {
     position: absolute;
-    height: 7.4%;
+    height: 28%;
     width: 97.7%;
     margin-top: 23%;
     margin-left: 2%;
     margin-right: auto;
     margin-bottom: 20%;
-    /* padding-top: 5%;
-    padding-bottom: 5%; */
     background-color: #fff;
     transform-origin: right center;
-    /* float: right; */
 }
 
 @keyframes slide-card {
@@ -284,6 +280,12 @@ h2 {
     }
 }
 
+.waves {
+    position: absolute;
+    width: 100vw;
+    left: -3%;
+    top: 90%;
+}
 
 .phil-main {
     opacity: 0;
@@ -408,9 +410,4 @@ left:0;
     background-size: cover;
     filter: grayscale(100%);/*モノクロ具合を変更したい場合はこの数値を変更*/
 	transition: .5s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
-}
-
-.my-div {
-    width: 1000px;
-    height: 1000px;
 }
