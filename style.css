@@ -8,16 +8,29 @@ Author:
 
 .site-header {
     background-color: black;
+    position: fixed;
+    height: auto;
 }
 
 .site-header a {
     color: #fff;
 }
 
+.site-body {
+    margin-top: 0;
+}
+
 .global-nav-name {
     color: #fff;
 }
 
+.header_scrolled.admin-bar .site-header {
+    animation: none;
+    background-color: black;
+}
+.header_scrolled .site-header-logo {
+    display: block;
+}
 
 
 /* 576

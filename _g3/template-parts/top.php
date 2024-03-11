@@ -5,22 +5,15 @@
 
 <!-- css -->
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/css/3d-style.css' ?>">
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/css/vegas.min.css' ?>">
 <!-- js libraries -->
 <script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/jquery.js' ?>"></script>
-<script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/lib/vegas.min.js' ?>"></script>
 
-<div id="slider"></div>
 <div class="canvas-wrapper">
     <!-- <canvas id="planets"></canvas> -->
+    <canvas id="bloomElement"></canvas>
+    <canvas id="fireElement"></canvas>
     <canvas id="particle"></canvas>
     <p class="corp-name TextTyping">株式会社Eureka Holdings</p>
-    <div class="scrolldown3"><span>Scroll</span></div>
-</div>
-
-<div class="text-contents">
-    <div class="bg-card"></div>
-    <canvas class="waves" id="waveCanvas" style="display: none;"></canvas>
     <div class="philosophy">
         <p class="phil-main">共に創り上げる革命的未来、幸福な共同体の築造</p>
         <p class="phil-sub">
@@ -29,9 +22,11 @@
             革新的なアイディアと洞察によって未来の可能性を切り拓き、単なるビジネスの成功だけではなく、<span class="marker">共に歩む人々の幸福と繁栄に深く根ざしています。</span>
         </p>
     </div>
+    <div class="scrolldown3"><span>Scroll</span></div>
 </div>
 
-<div class="group-companies">
+
+<div class="group-companies" style="opacity: 0;">
     <h2 class="group-companies-h2">Group Companies</h2>
     <div class="grid-container-left">
         <div class="corporate-details">
@@ -128,7 +123,11 @@
 </div>
 
 <!-- js -->
-<script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/main.js' ?>"></script>
-<script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/wave.js' ?>"></script>
+<script>
+    const imagePath = "<?php echo get_stylesheet_directory_uri() . '/_g3/assets/images/' ?>";
+</script>
+<script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/top.js' ?>"></script>
+<script type="module" src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/bloomLight.js' ?>"></script>
+<script type="module" src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/fire.js' ?>"></script>
 <script type="module" src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/fluid_animation.js' ?>"></script>
-<script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/slideshow.js' ?>"></script>
+<script src="<?php echo get_stylesheet_directory_uri() . '/_g3/assets/js/wave.js' ?>"></script>
