@@ -59,7 +59,7 @@ function init() {
 
     /* テクスチャの用意 */
     const loader = new THREE.TextureLoader();
-    const texture = loader.load('http://localhost/wp-content/themes/lightning-child/_g3/assets/images/tex.png');
+    const texture = loader.load(imagePath + 'tex.png');
 
     /* 炎パーティクルを作成する */
     const geometry = new THREE.PlaneGeometry( fireSize, fireSize, 1 );
