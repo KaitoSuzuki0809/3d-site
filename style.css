@@ -1,5 +1,5 @@
 /*
-Theme Name: Lightning Child
+Theme Name: Lightning Child Dev
 Template: lightning
 Theme URI:
 Description: Lightningテーマの子テーマ
@@ -22,6 +22,10 @@ Author:
 
 .global-nav-name {
     color: #fff;
+}
+
+#site-header {
+    background-color: transparent;
 }
 
 .header_scrolled.admin-bar .site-header {

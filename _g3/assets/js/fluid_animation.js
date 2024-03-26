@@ -77,13 +77,13 @@ thing("Yo.");
     // var canvas_width = window.innerWidth; //Needs to be a multiple of the resolution value below.
     // var canvas_height = window.innerHeight; //This too.
 
-    var resolution = 10; //Width and height of each cell in the grid.
+    var resolution = 20; //Width and height of each cell in the grid.
 
     var pen_size = 40; //Radius around the mouse cursor coordinates to reach when stirring
 
     var num_cols = canvas_width / resolution; //This value is the number of columns in the grid.
     var num_rows = canvas_height / resolution; //This is number of rows.
-    var speck_count = 12000; //This determines how many particles will be made.
+    var speck_count = 30000; //This determines how many particles will be made.
 
     var vec_cells = []; //The array that will contain the grid cells
     var particles = []; //The array that will contain the particles

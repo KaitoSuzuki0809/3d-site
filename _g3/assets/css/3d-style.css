@@ -1,5 +1,5 @@
 * {
-    color: white;
+    /* color: white; */
 }
 
 body {
@@ -7,14 +7,19 @@ body {
     -ms-overflow-style: none;
     /* Firefox 対応 */
     /* scrollbar-width: none; */
+    color: white;
 }
 
 body::-webkit-scrollbar {
     display:none;
 }
 
+body.custom-background {
+    background-color: #000;
+}
+
 body {
-    background-color: #fff;
+    background-color: #000;
 }
 
 h2 {
@@ -23,6 +28,11 @@ h2 {
 
 .site-header {
     position: fixed;
+}
+
+.header-contact {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .site-body {
@@ -53,7 +63,8 @@ h2 {
 .canvas-wrapper {
     position: relative;
     margin-top: 0;
-    /* height: 400px; */
+    height: 1vh;
+    padding-bottom: 700%;
 }
 
 .canvas-wrapper canvas {
@@ -63,6 +74,71 @@ h2 {
     left: 0;
     right: 0;
 }
+
+.progress-container {
+    position: fixed;
+    z-index: 8;
+    top: 30%;
+    max-height: 40%;
+    right: 8%;
+    height: 500px;
+    width: 1.5rem;
+}
+
+.progress-bar {
+    position: relative;
+    width: 0.1%;
+    /* border-left: 0.5px solid #fff; */
+    height: 100%;
+    width: 100%;
+}
+
+.progress-guide {
+    position: absolute;
+    width: 0.1%;
+    border-left: 1px solid gray;
+    height: 100%;
+    left: 0.55rem;
+}
+
+.progress-percent {
+    position: absolute;
+    width: 0.1%;
+    border-left: 1px solid white;
+    height: 0%;
+    left: 0.55rem;
+}
+
+.progress-nav {
+    position: absolute;
+}
+
+.progress-nav a {
+    color: gray;
+    text-decoration: none;
+}
+
+.progressNav a:hover {
+    color: white;
+}
+
+
+.li-philosophy {
+    margin-top: 55%;
+}
+
+.li-companies {
+    margin-top: 74.5%;
+}
+
+.li-ceo {
+    margin-top: 74.5%;
+}
+
+.li-info-contact {
+    margin-top: 69%;
+}
+
 
 #bloomElement {
     position: fixed;
@@ -87,13 +163,13 @@ h2 {
 
 #particle {
     position: fixed;
-    z-index: 6;
+    z-index: 7;
 }
 
 .corp-name {
     position: fixed;
-    margin-top: 6%;
-    z-index: 4;
+    top: 33%;
+    z-index: 6;
     text-align: center;
     width: 100%;
 }
@@ -115,7 +191,7 @@ h2 {
 
 .philosophy {
     position: fixed;
-    margin-top: 15%;
+    top: 38%;
     z-index: 4;
     text-align: center;
     width: 100%;
@@ -123,7 +199,7 @@ h2 {
 
 .phil-main {
     opacity: 0;
-    font-size: large;
+    font-size: x-large;
 
     background-image: linear-gradient(#fff, #fff); /* 単色 */
     display: inline;
@@ -140,12 +216,22 @@ h2 {
 }
 
 .phil-sub {
-    margin-top: 5%;
     opacity: 0;
-    max-width: 70%;
+    max-width: 25%;
     font-size: large;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
+    position: absolute;
+    width: 50%;
+    top: 100%;
+    right: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 2;
+}
+
+.phil-sub p {
+    margin-bottom: 5%;
 }
 
 .marker {
@@ -158,6 +244,54 @@ h2 {
 
 .marker.on {
     background-size: 100% 100%; /* 横方向を100%にして、マーカーを引く */
+}
+
+.philosophy .images {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    z-index: 1;
+    opacity: 0;
+    /* display: none; */
+}
+
+.phil-image-container {
+    margin-top: 2%;
+}
+
+.phil-image img{
+    width: 10%;
+}
+
+.phil-image-1 {
+    margin-left: 60%;
+    width: 180px;
+}
+
+.phil-image-2 {
+    margin-right: 65%;
+    width: 180px;
+}
+
+.phil-image-3 {
+    margin-left: 30%;
+    width: 180px;
+}
+
+.phil-image-4 {
+    margin-right: 40%;
+    width: 180px;
+}
+
+#splash {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    z-index: 9999999;
+    text-align:center;
+    color:#fff;
 }
 
 /* 768pxより大きいとき */
@@ -283,73 +417,498 @@ h2 {
 	border:1px solid #eee;
 }
 
-.wave{
-    position: relative;
-}
-
-.wave canvas{
-    position: absolute;
-    bottom: 0;
-left:0;
-    width: 100%;
-}
-
 .group-companies {
+    position: fixed;
     width: 100%;
+    top: 13%;
+    color: black;
 }
 
 .group-companies-h2 {
     font-size: xxx-large;
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
-.grid-container-left {
+.grid-container {
+    width: 75%;
+    height: auto;
     display: grid;
     gap: 5%;
-    grid-template-areas: "grid1 grid2";
+    grid-template-areas:
+        "grid1 grid2"
+        "grid3 grid4";
     grid-template-columns: 1fr 1fr;
-    margin: 0 auto;
     margin-bottom: 3%;
-    width: 90%;
+    padding-top: 1%;
+    position: fixed;
+    top: 58%;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%)
+               translateY(-50%);
 }
 
-.grid-container-right {
-    display: grid;
-    gap: 5%;
-    grid-template-areas: "grid2 grid1";
-    grid-template-columns: 1fr 1fr;
-    margin: 0 auto;
-    margin-bottom: 3%;
-    width: 90%;
+#company1 .corporate-name {
+    opacity: 0;
 }
 
-.corporate-details {
+#company1 .about-us {
+    opacity: 0;
+}
+
+#company1 .strength {
+    opacity: 0;
+}
+
+#company1 .corporate-philosophy {
+    opacity: 0;
+}
+
+#company2 .corporate-name {
+    opacity: 0;
+}
+
+#company2 .about-us {
+    opacity: 0;
+}
+
+#company2 .strength {
+    opacity: 0;
+}
+
+#company2 .corporate-philosophy {
+    opacity: 0;
+}
+
+#company3 .corporate-name {
+    opacity: 0;
+}
+
+#company3 .about-us {
+    opacity: 0;
+}
+
+#company3 .strength {
+    opacity: 0;
+}
+
+#company3 .corporate-philosophy {
+    opacity: 0;
+}
+
+#company4 .corporate-name {
+    opacity: 0;
+}
+
+#company4 .about-us {
+    opacity: 0;
+}
+
+#company4 .strength {
+    opacity: 0;
+}
+
+#company4 .corporate-philosophy {
+    opacity: 0;
+}
+
+.corporate-name {
     grid-area: grid1;
-    padding: 3%;
+    border-bottom: none;
+    display: table;
+    text-align: center;
+
+    filter: grayscale(50%); /*モノクロ具合を変更したい場合はこの数値を変更*/
+	transition: .5s ease-in-out; /*移り変わる速さを変更したい場合はこの数値を変更*/
 }
 
-.corporate-details h3 {
-    font-size: x-large;
+#company1 .corporate-name {
+    background-image: url('../images/image-7.jpeg');
+    background-size: cover;
 }
 
-.corporate-details .en {
-    font-size: large;
-    color: gainsboro;
+#company2 .corporate-name {
+    background-image: url('../images/image-8.jpeg');
+    background-size: cover;
 }
 
-.corporate-details .name {
-    font-size: xx-large;
-    border-bottom: 1px solid #fff;
+#company3 .corporate-name {
+    background-image: url('../images/image-9.jpeg');
+    background-size: cover;
+}
+
+#company4 .corporate-name {
+    background-image: url('../images/image-10.jpeg');
+    background-size: cover;
+}
+
+.corporate-name p {
+    display: table-cell;
+	vertical-align: middle;
+    font-size: xxx-large;
+    color: white;
+}
+
+.corporate-name::after {
+    border-bottom: none;
 }
 
 .about-us {
+    grid-area: grid3;
+}
 
+.grid-container .en {
+    font-size: large;
+    color: gray;
+}
+
+.strength {
+    grid-area: grid2;
+}
+
+.corporate-philosophy {
+    grid-area: grid4;
 }
 
 .corporate-image {
     height: auto;
-    grid-area: grid2;
-    background-image: url('../images/AdobeStock_612181794-square.jpg');
+    /* grid-area: grid2; */
+    /* background-image: url('../images/AdobeStock_612181794-square.jpg'); */
     background-size: cover;
     filter: grayscale(100%);/*モノクロ具合を変更したい場合はこの数値を変更*/
 	transition: .5s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+}
+
+.fadeIn {
+    animation-name: fadeInAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInAnime {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#splash {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: black;
+	z-index: 6;
+	text-align: center;
+	color: #fff;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+/* 黒から白の画面遷移アニメーション*/
+body.appear{
+    background: #fff;/*画面を開いた後の背景色を指定*/
+}
+
+.splashbg{
+    display: none;
+	content: "";
+	position: fixed;
+	transform: scale(100);
+	background-color: black;/*伸びる背景色の設定*/
+	z-index: 5;
+    /*丸のスタートの形状*/
+    top: calc(50% - 1rem);/*50%から円の半径を引いた値*/
+    left: calc(50% - 1rem);/*50%から円の半径を引いた値*/
+	width: 2rem;
+	height: 2rem;
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear .splashbg{
+    display: block;
+    border-radius: 50%;
+	animation-name: PageAnime;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes PageAnime{
+	0% {/*丸のスタート位置と形状*/
+		transform: scale(100);
+
+	}
+	100% {/*丸の終了位置と形状*/
+		transform: scale(0);
+		display: none;/*終了時は消える*/
+	}
+}
+
+/*画面遷移の後現れるコンテンツ設定*/
+#groupCompanies{
+	opacity: 0;/*はじめは透過0に*/
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear #groupCompanies{
+	animation-name: PageAnimeAppear;
+	animation-duration: 1s;
+	animation-delay: 0.8s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+@keyframes PageAnimeAppear{
+	0% {
+	    opacity: 0;
+	}
+	100% {
+	    opacity: 1;
+    }
+}
+
+/* 白から黒の画面遷移アニメーション*/
+#splash-2 {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: white;
+	z-index: 6;
+	text-align: center;
+	color: white;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+body.appear-2{
+    background: #000;/*画面を開いた後の背景色を指定*/
+}
+
+.splashbg-2{
+    display: none;
+	content: "";
+	position: fixed;
+	transform: scale(100);
+	background-color: white;/*伸びる背景色の設定*/
+	z-index: 5;
+    /*丸のスタートの形状*/
+    top: calc(50% - 1rem);/*50%から円の半径を引いた値*/
+    left: calc(50% - 1rem);/*50%から円の半径を引いた値*/
+	width: 2rem;
+	height: 2rem;
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear-2 .splashbg-2{
+    display: block;
+    border-radius: 50%;
+	animation-name: PageAnime;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+/*画面遷移の後現れるコンテンツ設定*/
+#ceoIntroduction {
+	opacity: 0;/*はじめは透過0に*/
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear-2 #ceoIntroduction {
+	animation-name: PageAnimeAppear;
+	animation-duration: 1s;
+	animation-delay: 0.8s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+/* CEO紹介 */
+.ceo-introduction {
+    width: 100%;
+    top: 13%;
+    position: fixed;
+    height: 100%;
+    opacity: 0;
+    display: none;
+    left: 0;
+    right: 0;
+}
+
+.ceo-introduction h2 {
+    text-align: center;
+    font-size: xxx-large;
+    margin-bottom: 2%;
+}
+
+.ceo-grid-container {
+    width: 65%;
+    display: grid;
+    gap: 7%;
+    grid-template-areas: "grid1 grid2";
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+}
+
+.ceo-grid-containerr img {
+    grid-area: grid1;
+}
+
+.ceo-grid-container .text-container {
+    grid-area: grid2;
+}
+
+.ceo-grid-container .text-container h3 {
+    font-size: xx-large;
+    margin-top: 5%;
+    margin-bottom: 0;
+}
+
+.ceo-grid-container .text-container span {
+    font-size: x-large;
+    color: gainsboro;
+}
+
+.ceo-grid-container .text-container p {
+    text-align: left;
+}
+
+/* 会社情報 */
+.info-contact {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 13%;
+    z-index: 6;
+    opacity: 0;
+    left: 0;
+    right: 0;
+}
+
+.information {
+    width: 75%;
+    margin: 0 auto;
+    /* opacity: 0; */
+}
+
+.information h2 {
+    text-align: center;
+    font-size: xxx-large;
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+.information .info-table {
+    width: auto;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.information .info-table th {
+    text-align: right;
+    white-space: nowrap;
+    width: 10rem;
+}
+
+.contact {
+    width: 75%;
+    margin: 0 auto;
+    /* opacity: 0; */
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: xxx-large;
+    margin-bottom: 0;
+}
+
+.form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.form .row {
+    width: 100%;
+    /* display: flex;
+    justify-content: center; */
+}
+
+.row input {
+    width: 50%;
+    padding: 0.4em 0.5em;
+}
+
+.row textarea {
+    width: 50%;
+    padding: 0.4em 0.5em;
+}
+
+.row label {
+    margin-right: 5%;
+    width: 10rem;
+    text-align: right;
+}
+
+/* .label-name {
+    position: fixed;
+}
+
+.name {
+    position: fixed;
+
+}
+
+.label-email {
+    position: fixed;
+
+}
+
+.email {
+    position: fixed;
+
+}
+
+.label-contact-message {
+    position: fixed;
+
+}
+
+.contact-message {
+    position: fixed;
+
+} */
+
+.submit-btn {
+    margin: 0 auto;
+    max-width: 100%;
+    text-align: center;
+}
+
+.submit-btn button {
+    text-align: center;
+    border-radius: 100vh;
+    width: 10%;
+    padding: 8px;
+    margin-top: 2%;
+    background: black;
+    color: white;
+    box-shadow: none;
+    border-color: white;
+}
+
+.footer {
+    position: fixed;
+    text-align: center;
+    background-color: black;
+    color: gray;
+    opacity: 0;
+    bottom: 0;
+    width: 100%;
 }
